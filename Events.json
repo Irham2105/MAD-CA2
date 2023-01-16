@@ -1,0 +1,40 @@
+{
+   "Event 1": {
+        "name": "Street Photography Event",
+        "date": "25-03-2023",
+        "desc": "",
+        "price": {
+            "adult": 35,
+            "child": 25,
+            "elderly": 20
+        }
+    },
+    "Event 2": {
+        "name": "Bright Eyes Concert",
+        "date": "29-09-2023",
+        "desc": "",
+        "price": {
+            "adult": 100
+        }
+    },
+    "Event 3": {
+        "name": "Art Exhibition",
+        "date": "12-05-2023",
+        "desc": "",
+        "price": {
+            "adult": 50,
+            "child": 35,
+            "elderly": 35
+        }
+    },
+    "Event 4": {
+        "name": "Community Theatre",
+        "date": "21-02-2023",
+        "desc": "",
+        "price": {
+            "adult": 15,
+            "child": 5,
+            "elderly": 5
+        }
+    }
+}

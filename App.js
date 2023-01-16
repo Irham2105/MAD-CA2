@@ -8,9 +8,6 @@ import {
   TouchableOpacity,
   FlatList,
   TouchableHighlight,
-  ImageBackground,
-  SafeAreaView,
-  TextInput
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -20,27 +17,6 @@ import { ScrollView } from 'react-native-virtualized-view'
 import Counter from './counter'
 import Counter1 from './counter'
 import Counter2 from './counter'
-
-const DATA1 = [
-  {
-    id: 1,
-    Category: 'Adult',
-    Desc: 'Above 21',
-    Price: 35
-  },
-  {
-    id: 2,
-    Category: 'Child',
-    Desc: 'Below 16',
-    Price: 25
-  },
-  {
-    id: 3,
-    Category: 'Elderly',
-    Desc: 'Above 65',
-    Price: 25
-  },
-]
 
 const DATA = [
   {
@@ -407,173 +383,6 @@ function InfoScreen({ navigation }) {
   );
 }
 
-function LoginScreen({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('./assets/background.png')}
-        resizeMode="cover"
-        style={styles.background}>
-        <View>
-          <Text style={styles.title}>YOUR</Text>
-          <Text style={styles.title}>TICKETING</Text>
-          <Text style={styles.title}>FRIEND</Text>
-        </View>
-        <View>
-          <Login></Login>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={styles.forgot}
-            onPress={() => navigation.navigate('Reset')}>
-            <Text style={styles.touchabletext}>Forgot Your Password?</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.login}
-            onPress={() => navigation.navigate('Home')}>
-            <Text style={styles.touchabletext}>LOG IN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.create}
-            onPress={() => navigation.navigate('Create')}>
-            <Text style={styles.touchabletext}>Don't have an account?</Text>
-          </TouchableOpacity>
-        </View>
-      </ImageBackground>
-    </View>
-  );
-}
-
-function CreateScreen({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('./assets/background.png')}
-        resizeMode="cover"
-        style={styles.background}>
-        <Text style={styles.title}>CREATE YOUR</Text>
-        <Text style={styles.title}>ACCOUNT</Text>
-        <CreateAccount></CreateAccount>
-        <TouchableOpacity
-          style={styles.login}
-          onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.touchabletext}>Confirm</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.goback}
-          onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.touchabletext}>Go back</Text>
-        </TouchableOpacity>
-      </ImageBackground>
-    </View>
-  );
-}
-
-function ResetScreen({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('./assets/background.png')}
-        resizeMode="cover"
-        style={styles.background}>
-        <Text style={styles.title}>RESET YOUR</Text>
-        <Text style={styles.title}>PASSWORD</Text>
-        <Text style={styles.reset}>
-          Type in your email address for you and you will get an email to reset
-          your password
-        </Text>
-        <Reset></Reset>
-        <TouchableOpacity
-          style={styles.login}
-          onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.touchabletext}>Confirm</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.goback}
-          onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.touchabletext}>Go back</Text>
-        </TouchableOpacity>
-      </ImageBackground>
-    </View>
-  );
-}
-
-const CreateAccount = () => {
-  const [text, onChangeText] = React.useState(null);
-  return (
-    <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Username"
-      />
-
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Email address"
-      />
-
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Password"
-      />
-
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Confirm Password"
-      />
-    </SafeAreaView>
-  );
-};
-
-
-
-const Reset = () => {
-  const [text, onChangeText] = React.useState(null);
-
-  return (
-    <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Email address"
-      />
-    </SafeAreaView>
-  );
-};
-
-const Login = () => {
-  const [text, onChangeText] = React.useState(null);
-  const [text2, onChangeText2] = React.useState(null);
-
-  return (
-    <SafeAreaView>
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
-        placeholder="Email address"
-      />
-
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText2}
-        value={text2}
-        placeholder="Password"
-      />
-    </SafeAreaView>
-  );
-};
-
-
 const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
@@ -721,51 +530,11 @@ function ProfileStackScreen() {
   );
 }
 
-const stack = createNativeStackNavigator()
-
-function LoginStack() {
-  return (
-    <stack.Navigator>
-      <stack.Screen
-        name="Login"
-        component={LoginScreen}
-        options={{
-          headerTitleAlign: 'center',
-          headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-        }}
-      />
-      <stack.Screen
-        name="Create"
-        component={CreateScreen}
-        options={{
-          headerTitleAlign: 'center',
-          headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-        }}
-      />
-      <stack.Screen
-        name="Reset"
-        component={ResetScreen}
-        options={{
-          headerTitleAlign: 'center',
-          headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-        }}
-      />
-      <stack.Screen
-        name="Home"
-        component={TabNav}
-        options={{
-          headerTitleAlign: 'center',
-          headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-        }}
-      />
-    </stack.Navigator>
-  )
-}
-
 const Tab = AnimatedTabBarNavigator();
 
-function TabNav () {
+export default function App() {
   return (
+    <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: "#656565",
@@ -808,46 +577,6 @@ function TabNav () {
           }}
         />
       </Tab.Navigator>
-  )
-}
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <stack.Navigator
-      >
-        <stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-          }}
-        />
-        <stack.Screen
-          name="Create"
-          component={CreateScreen}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-          }}
-        />
-        <stack.Screen
-          name="Reset"
-          component={ResetScreen}
-          options={{
-            headerTitleAlign: 'center',
-            headerTitleStyle: { fontSize: 16, color: '#FF473A' },
-          }}
-        />
-        <stack.Screen
-          name="Home"
-          component={TabNav}
-          options={{
-            headerShown: false
-          }}
-        />
-      </stack.Navigator>
     </NavigationContainer>
   )
 }
